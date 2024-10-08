@@ -1,0 +1,544 @@
+#
+# BuiltHub prefixes and vocabularies.
+#
+# Look at: https://joinup.ec.europa.eu/sites/default/files/distribution/2013-10/Core_Vocabularies-Business_Location_Person-Specification-v1.00.pdf
+# Look at: https://joinup.ec.europa.eu/sites/default/files/document/2013-03/Cookbook%20for%20translating%20relational%20domain%20models%20to%20RDF-S.pdf
+#
+#@base <http://data.builthub.eu/ontology/cbhsv.ttl> .
+
+@prefix adms: <http://www.w3.org/ns/adms#> .
+@prefix cnt: <http://www.w3.org/2011/content#> .
+@prefix cc: <https://creativecommons.org/ns#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcatap: <http://data.europa.eu/r5r/> .
+@prefix dcatapop: <http://data.europa.eu/88u/ontology/dcatapop> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix gsp: <http://www.opengis.net/ont/geosparql#> .
+@prefix locn: <http://www.w3.org/ns/locn#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <https://www.w3.org/1999/02/22-rdf-syntax-ns> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <http://schema.org/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix spdx: <http://spdx.org/rdf/terms#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix vann: <http://purl.org/vocab/vann/>.
+@prefix co: <http://purl.org/co/>.
+@prefix blthb: <http://data.builthub.eu/ontology/cbhsv.ttl#> .
+#
+# Metadata
+#
+<http://data.builthub.eu/ontology/cbhsv>
+    a owl:Ontology, adms:SemanticAsset;
+    dcterms:title "Core BuiltHub Service Vocabulary"@en;
+    dcterms:description "The Core BuiltHub Service Vocabulary is designed to make it easy to exchange and relate information stored in BuiltHub's database  with any other EC service."@en;
+    dcterms:created "2021-03-17"^^xsd:date;
+    dcterms:modified "2022-06-20"^^xsd:date;
+    vann:preferredNamespacePrefix "blthb";
+    foaf:homepage <http://data.builthub.eu/ontology/cbhsv.ttl>;
+    dcterms:publisher "BuiltHub's IT Solutions Architecture Team";
+    dcterms:creator "BuiltHub's IT Solutions Architecture Team" ;
+    dcterms:type <http://purl.org/adms/assettype/Ontology>;
+    dcterms:status <http://purl.org/adms/status/UnderDevelopment>. 
+#
+# Classes definition.
+# 
+blthb:TopicType
+    a rdfs:Class, owl:Class;
+    rdfs:subClassOf skos:Concept;
+    rdfs:label "TopicType class definition"@en;
+    rdfs:comment """Type of topic covered by the considered dataset following this clustering:
+                A= building stock datasets
+                B=socio/economic datasets
+                C=climatic datasets"""@en;
+    rdfs:isDefinedBy <http://data.builthub.eu/ontology/cbhsv.ttl>.
+
+blthb:Access
+    a rdfs:Class, owl:Class;
+    rdfs:subClassOf skos:Concept;
+    rdfs:label "Access class definition"@en;
+    rdfs:comment "Access class definition."@en;
+    rdfs:isDefinedBy <http://data.builthub.eu/ontology/cbhsv.ttl>.
+
+blthb:Availability
+    a rdfs:Class, owl:Class ;
+    rdfs:subClassOf skos:Concept ;
+    rdfs:label "Availability class definition"@en ;
+    rdfs:comment "Availability class definition."@en ;
+    rdfs:isDefinedBy <http://data.builthub.eu/ontology/cbhsv.ttl> .
+
+blthb:SourceType
+    a rdfs:Class, owl:Class ;
+    rdfs:subClassOf skos:Concept ;
+    rdfs:label "Source Type class definition"@en ;
+    rdfs:comment "Source Type class definition."@en ;
+    rdfs:isDefinedBy <http://data.builthub.eu/ontology/cbhsv.ttl> .
+
+blthb:Sector
+    a rdfs:Class, owl:Class;
+    rdfs:subClassOf skos:Concept;
+    rdfs:label "Sector class definition"@en;
+    rdfs:comment "Sector class definition"@en;
+    rdfs:isDefinedBy <http://data.builthub.eu/ontology/cbhsv.ttl>.
+
+blthb:SubSector
+    a rdfs:Class, owl:Class;
+    rdfs:subClassOf skos:Concept;
+    rdfs:label "SubSector class definition"@en;
+    rdfs:comment "SubSector class definition"@en;
+    rdfs:isDefinedBy <http://data.builthub.eu/ontology/cbhsv.ttl>.
+
+blthb:BuildingType
+    a rdfs:Class, owl:Class;
+    rdfs:subClassOf skos:Concept;
+    rdfs:label "BuildingType class definition"@en;
+    rdfs:comment "Building Type class definition"@en;
+    rdfs:isDefinedBy <http://data.builthub.eu/ontology/cbhsv.ttl>.
+
+blthb:Topic
+    a rdfs:Class, owl:Class;
+    rdfs:subClassOf skos:Concept;
+    rdfs:label "Topic class definition"@en;
+    rdfs:comment "Topic Type class definition"@en;
+    rdfs:isDefinedBy <http://data.builthub.eu/ontology/cbhsv.ttl>.
+
+blthb:Feature
+    a rdfs:Class, owl:Class;
+    rdfs:subClassOf skos:Concept;
+    rdfs:label "Feature class definition"@en;
+    rdfs:comment "Feature class definition"@en;
+    rdfs:isDefinedBy <http://data.builthub.eu/ontology/cbhsv.ttl>.
+
+blthb:Type
+    a rdfs:Class, owl:Class;
+    rdfs:subClassOf skos:Concept;
+    rdfs:label "Type class definition"@en;
+    rdfs:comment "Type class definition"@en;
+    rdfs:isDefinedBy <http://data.builthub.eu/ontology/cbhsv.ttl>.
+
+blthb:Detail
+    a rdfs:Class, owl:Class;
+    rdfs:subClassOf skos:Concept;
+    rdfs:label "Detail class definition"@en;
+    rdfs:comment "Detail class definition"@en;
+    rdfs:isDefinedBy <http://data.builthub.eu/ontology/cbhsv.ttl>.
+
+blthb:Dataset
+    a rdfs:Class, owl:Class;
+    rdfs:subClassOf skos:Concept;
+    rdfs:label "Dataset class definition"@en;
+    rdfs:comment "Dataset class definition."@en;
+    rdfs:isDefinedBy <http://data.builthub.eu/ontology/cbhsv.ttl>.
+
+blthb:Dataset001 a rdfs:Class,
+        owl:Class ;
+    rdfs:label "Horizon 2020 HotMaps project: Building stock analysis"@en ;
+    rdfs:comment """Complete building stock analysis for the EU27+UK.
+     Values related to final energy consumption and useful energy demand for space heating, space cooling and domestic hot water,
+     construction materials and methodologies, technologies used and building stock data/information 
+     (thermal transmittancy, building stock vintages and characteristics, household occupancy related data, etc.)
+     can be found both for the residential and the non-residential sectors per building types and construction vintages."""@en ;
+    rdfs:isDefinedBy <http://data.builthub.eu/ontology/cbhsv.ttl> ;
+    rdfs:subClassOf skos:Concept .
+
+blthb:Dataset002 a rdfs:Class,
+        owl:Class ;
+    rdfs:label "IEE TABULA project: Typology Approach for Building Stock Energy Assessment"@en ;
+    rdfs:comment "Building stock data and data focused on technical systems for heating, cooling and domestic hot water production in different buildings types are the main outputs of this dataset. Final energy consumption and envelope performance data are available as well."@en ;
+    rdfs:isDefinedBy <http://data.builthub.eu/ontology/cbhsv.ttl> ;
+    rdfs:subClassOf skos:Concept .
+
+blthb:Dataset003 a rdfs:Class,
+        owl:Class ;
+    rdfs:label "IEE EPISCOPE project: Focus of building stock monitoring"@en ;
+    rdfs:comment "The main focus point of the EPISCOPE Project is the energy refurbishment of houses in 20 European countries. Interesting collected information concern the construction period (definition of different classes in each country) and the building type (single or multi-family house, terraced house and apartment block) , as well as performane-related parameters."@en ;
+    rdfs:isDefinedBy <http://data.builthub.eu/ontology/cbhsv.ttl> ;
+    rdfs:subClassOf skos:Concept .
+
+blthb:Dataset004 a rdfs:Class,
+        owl:Class ;
+    rdfs:label "IEE ZEBRA2020 project: Nearly Zero-Energy Building Strategy 2020"@en ;
+    rdfs:comment "Building stock data including data for energy efficiency trends in buildings as well as data for net zero energy buildings. The project focused on the newly built buildings. This project focused on the creation of an observatory for monitoring the market uptake of nZEBs across Europe. It contains information related to energy performance certificates, materials employed for the buildings, energy performance and final energy consumption and more."@en ;
+    rdfs:isDefinedBy <http://data.builthub.eu/ontology/cbhsv.ttl> ;
+    rdfs:subClassOf skos:Concept .
+
+blthb:Dataset005 a rdfs:Class,
+        owl:Class ;
+    rdfs:label "IEE ENTRANZE project: Policies to Enforce the TRAnsition to Nearly Zero Energy buildings in the EU27"@en ;
+    rdfs:comment "This dataset provides the mapping of several data coming from different sources. The main outputs of the projects are the mapping of building stock related datasuch as floor area of residential and non-residential buildings, heating/AC system data, and final energy consumption by sector and more."@en ;
+    rdfs:isDefinedBy <http://data.builthub.eu/ontology/cbhsv.ttl> ;
+    rdfs:subClassOf skos:Concept .
+
+blthb:Dataset006 a rdfs:Class,
+        owl:Class ;
+    rdfs:label "H2020 ODYSSEE - MURE project: Comprehensive monitoring of efficiency trends and policy evaluation in EU countries, Norway, Serbia and Switzerland."@en ;
+    rdfs:comment "This dataset presents building stock related data including floor area of dwellings, final energy consumption by source, and stock of appliances and dwellings for the  EU countries, Norway, Serbia and Switzerland."@en ;
+    rdfs:isDefinedBy <http://data.builthub.eu/ontology/cbhsv.ttl> ;
+    rdfs:subClassOf skos:Concept .
+
+blthb:Dataset007 a rdfs:Class,
+        owl:Class ;
+    rdfs:label "FP7 CommONEnergy Project: building stock"@en ;
+    rdfs:comment "Building stock data including building sector data and final energy demand data for non-residential buildings, especially focusing on the trade sector (shopping malls, …)"@en ;
+    rdfs:isDefinedBy <http://data.builthub.eu/ontology/cbhsv.ttl> ;
+    rdfs:subClassOf skos:Concept .
+
+blthb:Dataset008 a rdfs:Class,
+        owl:Class ;
+    rdfs:label "JRC IDEES 2015"@en ;
+    rdfs:comment "The JRC IDEES (Integrated Database of the European Energy System) is focused on the incorporation in a single datbase of all inecessary information for a better understanding of the off the European energy system dynamics. In this way it provides a way to better analyse both the past and to create the best possible basis for future policy assessments. JRC IDEES offers a set of disaggregated energy-environment-economy data, compliant with the EUROSTAT energy balances, as well as widely acknowledged data on existing technologies. It also contains a plausible decomposition of final energy consumption."@en ;
+    rdfs:isDefinedBy <http://data.builthub.eu/ontology/cbhsv.ttl> ;
+    rdfs:subClassOf skos:Concept .
+
+blthb:Dataset009 a rdfs:Class,
+        owl:Class ;
+    rdfs:label "SET-Nav - Strategic Energy Roadmap"@en ;
+    rdfs:comment "The project intends to support strategic decision making in Europe's energy sector, enhancing innovation towards a clean, secure and efficient energy system."@en ;
+    rdfs:isDefinedBy <http://data.builthub.eu/ontology/cbhsv.ttl> ;
+    rdfs:subClassOf skos:Concept .
+
+blthb:Dataset010 a rdfs:Class,
+        owl:Class ;
+    rdfs:label "H2020 ExcEED Project: building stock data"@en ;
+    rdfs:comment "The ExcEED project  (European Energy Efficient building district Database) takes the pulse of the actual energy consumed by last generation of buildings. The project answers the need for transparency and comparability of energy performance calculations. The scope of ExcEED is to create a European database for measured and qualitative data on beyond the state-of-the-art buildings and districts."@en ;
+    rdfs:isDefinedBy <http://data.builthub.eu/ontology/cbhsv.ttl> ;
+    rdfs:subClassOf skos:Concept .
+
+blthb:Dataset011 a rdfs:Class,
+        owl:Class ;
+    rdfs:label "FP7 iNSPiRe project: building stock analysis"@en ;
+    rdfs:comment "The building stock analysis and data gathering exercise focused its attention on published literature and other sources, aiming to extrapolate information about the current residential and office building stock. Among the differentdata gathered it is possible to mention number and floor area of residential buildings/dwellings and office buildings / construction by type and age age distribution /  typology/ façade and glazing types / geometry  / average floor area/ number of floors / U-value, thermal characteristic and performance of the buildings, by age / ownership and tenure i.e. number of social housing, owner occupied, private renting etc. / energy consumption and demand in terms of both, total and individual end-use including space heating, domestic hot water, cooling, lighting; fuel and heating system types and comfort requirements. Interest has been set onlighting-related data."@en ;
+    rdfs:isDefinedBy <http://data.builthub.eu/ontology/cbhsv.ttl> ;
+    rdfs:subClassOf skos:Concept .
+
+blthb:Dataset012 a rdfs:Class,
+        owl:Class ;
+    rdfs:label "Energy consumption and energyefficiency trends in the EU-27+UK forthe period 2000-2016 - FINAL REPORT"@en ;
+    rdfs:comment "This report shows the present status of final energy consumption in the EU-27+UK focusing the results on the most energy consuming sectors: residential, tertiary, transport and industry. Therefore, the report demonstrates the energy consumption progress from 2000 to 2016 in the mentioned four sectors. There is a special focus on electricity and gas consumption, as they are the most important alternatives to oil. The report includes an analysis of the most important factors influencing final energy consumption trends such as economic growth, population, heating demand, household characteristics and energy prices."@en ;
+    rdfs:isDefinedBy <http://data.builthub.eu/ontology/cbhsv.ttl> ;
+    rdfs:subClassOf skos:Concept .
+
+blthb:Dataset013 a rdfs:Class,
+        owl:Class ;
+    rdfs:label "Comprehensive study ofbuilding energy renovationactivities and the uptake ofnearly zero-energy buildingsin the EU - FINAL REPORT"@en ;
+    rdfs:comment "This study is focused on the delivery of a comprehensive analysis of the renovation activities and nearly zero-energy buildings (NZEB) uptake in the EU27+UK starting from 2012 up to 2016. Indicators in line with the Building Stock Observatory (BSO) have been applied. The main results are available for the EU27+UK and for each of the single Member States."@en ;
+    rdfs:isDefinedBy <http://data.builthub.eu/ontology/cbhsv.ttl> ;
+    rdfs:subClassOf skos:Concept .
+
+blthb:Dataset014 a rdfs:Class,
+        owl:Class ;
+    rdfs:label "EUROSTAT: Final energy consumption in households"@en ;
+    rdfs:comment "The final energy consumption in households is a measure of the total energy consumed by households as final users. In this dataset it is expressed in thousands tonnes of oil equivalent."@en ;
+    rdfs:isDefinedBy <http://data.builthub.eu/ontology/cbhsv.ttl> ;
+    rdfs:subClassOf skos:Concept .
+
+blthb:Dataset015 a rdfs:Class,
+        owl:Class ;
+    rdfs:label "EUROSTAT: Final energy consumption in households by fuel"@en ;
+    rdfs:comment "The share of seven types of fuel over the final residential energy consumption is reported in this dataset. The types of fuels considered are: solid fossil fuels, other fuels, oil and petroleum products, natural gas, electricity, heat and renewables and biofuels. The share of each fuel is expressed in per cent of the total consumption."@en ;
+    rdfs:isDefinedBy <http://data.builthub.eu/ontology/cbhsv.ttl> ;
+    rdfs:subClassOf skos:Concept .
+
+blthb:Dataset016 a rdfs:Class,
+        owl:Class ;
+    rdfs:label "EUROSTAT: Disaggregated final energy consumption in households"@en ;
+    rdfs:comment "This dataset provides disaggregated values for the final energy consumption"@en ;
+    rdfs:isDefinedBy <http://data.builthub.eu/ontology/cbhsv.ttl> ;
+    rdfs:subClassOf skos:Concept .
+
+blthb:Dataset017 a rdfs:Class,
+        owl:Class ;
+    rdfs:label "ZENSUS 2011"@en ;
+    rdfs:comment "This dataset contains disaggregated data concerning a building stock analysis for Germany, information about the occupancy of the buildings and socio/economic related data. Information concerning the type of heating systems used are reported too. The goal of the 2011 Census is to provide the most accurate snapshot possible of basic data on the country’s population and the employment and housing conditions."@en ;
+    rdfs:isDefinedBy <http://data.builthub.eu/ontology/cbhsv.ttl> ;
+    rdfs:subClassOf skos:Concept .
+
+blthb:Dataset018 a rdfs:Class,
+        owl:Class ;
+    rdfs:label "DPE - Diagnostic de Performance Energetique"@en ;
+    rdfs:comment "This dataset contains data regarding the distribution of Energy Performance Certifications at a granularity of NUTS3 level in France."@en ;
+    rdfs:isDefinedBy <http://data.builthub.eu/ontology/cbhsv.ttl> ;
+    rdfs:subClassOf skos:Concept .
+
+blthb:Dataset019 a rdfs:Class,
+        owl:Class ;
+    rdfs:label "Towards a sustainable NorthernEuropean housing stock - Sustainable Urban Areas 22"@en ;
+    rdfs:comment "This report contains complete data for a building stock analysis with data varying from State to State between 2000 and 2006. Data concerning material used and  (heating, ventialtion and cooling) systems installed are reported too. Construction/Demolition rates (1980-2004) have been added to the report."@en ;
+    rdfs:isDefinedBy <http://data.builthub.eu/ontology/cbhsv.ttl> ;
+    rdfs:subClassOf skos:Concept .
+
+blthb:Dataset020 a rdfs:Class,
+        owl:Class ;
+    rdfs:label "DEEP - De-risking Energy Efficiency Platform"@en ;
+    rdfs:comment "The De-risking Energy Efficiency Platform (DEEP) is an open source database for energy efficiency investments performance monitoring and benchmarking. The platform provides an exhaustive analysis on the performance of energy efficiency investments in order to support the assessment of the related benefits and financial risks. more in the deatil it could be possible to extrapolate data concerning the energy savings per renovation typer or per building type."@en ;
+    rdfs:isDefinedBy <http://data.builthub.eu/ontology/cbhsv.ttl> ;
+    rdfs:subClassOf skos:Concept .
+
+blthb:Dataset021 a rdfs:Class,
+        owl:Class ;
+    rdfs:label "Energy consumption and efficiency technology measures in European non-residential buildings"@en ;
+    rdfs:comment "This paper provides an overview on the results of the data collected by the GreenBuilding Programme (GBP) and its main results from the lounch in 2006 up to its completion in 2014. The paper focuses on building characteristics, energy performance, efficiency measures and energy savings. The paper categorises the main technological measures related to envelope, appliances and systems."@en ;
+    rdfs:isDefinedBy <http://data.builthub.eu/ontology/cbhsv.ttl> ;
+    rdfs:subClassOf skos:Concept .
+
+blthb:Dataset022 a rdfs:Class,
+        owl:Class ;
+    rdfs:label "Dataset of the publication: Europe’s Building Stock and Its Energy Demand: A Comparison Between Austria and Italy"@en ;
+    rdfs:comment "Building stock analysis data for Italy and Austria, evaluating also space cooling, space heating and final domestic hot water consumptions."@en ;
+    rdfs:isDefinedBy <http://data.builthub.eu/ontology/cbhsv.ttl> ;
+    rdfs:subClassOf skos:Concept .
+
+blthb:Dataset023 a rdfs:Class,
+        owl:Class ;
+    rdfs:label "National Housing Census: European statistical System"@en ;
+    rdfs:comment "This dataset contains a variety of data collected in relation to the national census performed in 2011 by EU27+UK member states. More specifically it is possible to find data concerning households such as the number of icomponents of single households at a grnualirty till NUTS3 level."@en ;
+    rdfs:isDefinedBy <http://data.builthub.eu/ontology/cbhsv.ttl> ;
+    rdfs:subClassOf skos:Concept .
+
+blthb:Dataset024 a rdfs:Class,
+        owl:Class ;
+    rdfs:label "Energy prices in 2019 -Household energy prices in the EU"@en ;
+    rdfs:comment "This report provides the households prices both for electricity and natural gas for the second semester of year 2019, comparing these values with the ones of the previous year."@en ;
+    rdfs:isDefinedBy <http://data.builthub.eu/ontology/cbhsv.ttl> ;
+    rdfs:subClassOf skos:Concept .
+
+blthb:Dataset025 a rdfs:Class,
+        owl:Class ;
+    rdfs:label "EUROSTAT: GDP per capita in PPS"@en ;
+    rdfs:comment "Gross domestic product (GDP) is a measure for the economic activity. The volume index of GDP per capita in Purchasing Power Standards (PPS) is expressed in relation to the European Union average set to equal 100 (EU27). If the index of a country is higher than 100, this country's level of GDP per head is higher than the EU average and vice versa. Please note that this index is thought for cross-country comparisons rather than for temporal comparisons."@en ;
+    rdfs:isDefinedBy <http://data.builthub.eu/ontology/cbhsv.ttl> ;
+    rdfs:subClassOf skos:Concept .
+
+blthb:Dataset026 a rdfs:Class,
+        owl:Class ;
+    rdfs:label "EUROSTAT: Population on 1 January by age, sex and NUTS 2 region"@en ;
+    rdfs:comment "This datasets provides a complete overview of the population of each NUTS2 region of the EU27+UK"@en ;
+    rdfs:isDefinedBy <http://data.builthub.eu/ontology/cbhsv.ttl> ;
+    rdfs:subClassOf skos:Concept .
+
+blthb:Dataset027 a rdfs:Class,
+        owl:Class ;
+    rdfs:label "EUROSTAT - Cooling and heating degree days"@en ;
+    rdfs:comment "A complete dataset of the cooling and heating degree days at NUTS2 level is provided both on annual and on monthly basis"@en ;
+    rdfs:isDefinedBy <http://data.builthub.eu/ontology/cbhsv.ttl> ;
+    rdfs:subClassOf skos:Concept .
+
+blthb:Dataset028 a rdfs:Class,
+        owl:Class ;
+    rdfs:label "EDGAR (Emissions Database for Global Atmospheric Research) CO2 Emissions"@en ;
+    rdfs:comment "Carbon Dioxide (CO₂) emissions by country and sector (Buildings, Transport, Other industrial combustion, Power Industry and other sectors) have been collected for the years between 1970 and 2018 and are reported expressed in MtCO₂/year."@en ;
+    rdfs:isDefinedBy <http://data.builthub.eu/ontology/cbhsv.ttl> ;
+    rdfs:subClassOf skos:Concept .
+
+blthb:Dataset029 a rdfs:Class,
+        owl:Class ;
+    rdfs:label "CORDEX - Regional climate model data on single levels for Europe"@en ;
+    rdfs:comment "Climatic data for Europe expressed in daily, monthly and seasonal mean values as well as 3 or 6 hours resolution. Data for air temperature at 2 m, wind speed, atmospheric pressure and hum idity can be found."@en ;
+    rdfs:isDefinedBy <http://data.builthub.eu/ontology/cbhsv.ttl> ;
+    rdfs:subClassOf skos:Concept .
+
+blthb:Dataset030 a rdfs:Class,
+        owl:Class ;
+    rdfs:label "PVGIS - Photovoltaic Geographical Information System"@en ;
+    rdfs:comment "This GIS dataset contains data related to the solar radiation. It takes into account both day and night-time periodsexpressing the solar radiation raster map in W/m2."@en ;
+    rdfs:isDefinedBy <http://data.builthub.eu/ontology/cbhsv.ttl> ;
+    rdfs:subClassOf skos:Concept .
+
+#
+# Properties definition.
+#
+blthb:measuredElement
+    a rdfs:Property, owl:ObjectProperty ;
+    rdfs:label "The element to be measured"@en ;
+    rdfs:comment "The element of the dataset to be measured."@en ;
+    rdfs:domain blthb:Dataset001, blthb:Dataset002, blthb:Dataset003, blthb:Dataset004, blthb:Dataset005, blthb:Dataset006, blthb:Dataset007, blthb:Dataset008, blthb:Dataset009, blthb:Dataset010 ;
+    rdfs:domain blthb:Dataset011, blthb:Dataset012, blthb:Dataset013, blthb:Dataset014, blthb:Dataset015, blthb:Dataset016, blthb:Dataset017, blthb:Dataset018, blthb:Dataset019, blthb:Dataset020 ;
+    rdfs:domain blthb:Dataset021, blthb:Dataset022, blthb:Dataset023, blthb:Dataset024, blthb:Dataset025, blthb:Dataset026, blthb:Dataset027, blthb:Dataset028, blthb:Dataset029, blthb:Dataset030 ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy <http://data.builthub.eu/ontology/cbhsv.ttl> .
+
+blthb:hasNUTS
+    a rdfs:Property, owl:ObjectProperty ;
+    rdfs:label "The NUTS level and group"@en ;
+    rdfs:comment "Indicates if the information is inside a NUTS boundaries. It must be NUTS URIs."@en ;
+    rdfs:domain blthb:Dataset001, blthb:Dataset002, blthb:Dataset003, blthb:Dataset004, blthb:Dataset005, blthb:Dataset006, blthb:Dataset007, blthb:Dataset008, blthb:Dataset009, blthb:Dataset010 ;
+    rdfs:domain blthb:Dataset011, blthb:Dataset012, blthb:Dataset013, blthb:Dataset014, blthb:Dataset015, blthb:Dataset016, blthb:Dataset017, blthb:Dataset018, blthb:Dataset019, blthb:Dataset020 ;
+    rdfs:domain blthb:Dataset021, blthb:Dataset022, blthb:Dataset023, blthb:Dataset024, blthb:Dataset025, blthb:Dataset026, blthb:Dataset027, blthb:Dataset028, blthb:Dataset029, blthb:Dataset030 ;
+    rdfs:range skos:Concept ;
+    rdfs:isDefinedBy <http://data.builthub.eu/ontology/cbhsv.ttl> .
+
+blthb:siec
+    a rdfs:Property, owl:ObjectProperty ;
+    rdfs:label "Standard International Energy Classification"@en ;
+    rdfs:comment "The main purpose of SIEC is to serve as a basis for developing or revising national classification schemes for energy products so as to make them compatible with international standards and, consequently, to ensure significantly improved cross-country comparability of energy data. SIEC is intended to be a multipurpose classification, meaning that individual SIEC products and aggregates are defined to be suitable for the production of energy statistics under different country circumstances and are relevant for the presentation and analysis of energy data in various policy and analytical contexts. In this connection, it is recognized that SIEC should be periodically reviewed and revised as necessary to reflect changes in the patterns of energy production and consumption."@en ;
+    rdfs:domain blthb:Dataset001, blthb:Dataset002, blthb:Dataset003, blthb:Dataset004, blthb:Dataset005, blthb:Dataset006, blthb:Dataset007, blthb:Dataset008, blthb:Dataset009, blthb:Dataset010 ;
+    rdfs:domain blthb:Dataset011, blthb:Dataset012, blthb:Dataset013, blthb:Dataset014, blthb:Dataset015, blthb:Dataset016, blthb:Dataset017, blthb:Dataset018, blthb:Dataset019, blthb:Dataset020 ;
+    rdfs:domain blthb:Dataset021, blthb:Dataset022, blthb:Dataset023, blthb:Dataset024, blthb:Dataset025, blthb:Dataset026, blthb:Dataset027, blthb:Dataset028, blthb:Dataset029, blthb:Dataset030 ;
+    rdfs:range skos:Concept ;
+    rdfs:isDefinedBy <http://data.builthub.eu/ontology/cbhsv.ttl> .
+
+blthb:topicType
+    a rdfs:Property, owl:ObjectProperty;
+    rdfs:label "Dataset's type of topic"@en;
+    rdfs:comment """Type of topic covered by the considered dataset following this clustering:
+            A= building stock datasets
+            B=socio/economic datasets
+            C=climatic datasets"""@en;
+    rdfs:domain blthb:Dataset;
+    rdfs:range blthb:TopicType;
+    rdfs:isDefinedBy <http://data.builthub.eu/ontology/cbhsv.ttl>.
+
+blthb:content
+    a rdfs:Property, owl:ObjectProperty;
+    rdfs:label "Dataset's brief description"@en;
+    rdfs:comment "Brief description of the type of data that can be found in the mentioned dataset."@en;
+    rdfs:domain blthb:Dataset ;
+    rdfs:range skos:definition ;
+    rdfs:isDefinedBy <http://data.builthub.eu/ontology/cbhsv.ttl>.
+
+blthb:datasetSource
+    a rdfs:Property, owl:ObjectProperty;
+    rdfs:label "Dataset's source URL"@en;
+    rdfs:comment "The URL of the dataset, so to be able to find the necessary data values."@en;
+    rdfs:domain blthb:Dataset ;
+    rdfs:range xsd:anyURI ;
+    rdfs:isDefinedBy <http://data.builthub.eu/ontology/cbhsv.ttl>.
+
+blthb:spacialExtension
+    a rdfs:Property, owl:ObjectProperty;
+    rdfs:label "Dataset's nations for which data are present"@en;
+    rdfs:comment "The nations for which data are present."@en;
+    rdfs:domain blthb:Dataset ;
+    rdfs:range skos:prefLabel ;
+    rdfs:isDefinedBy <http://data.builthub.eu/ontology/cbhsv.ttl>.
+
+blthb:granularity
+    a rdfs:Property, owl:ObjectProperty;
+    rdfs:label "Dataset's granularity"@en;
+    rdfs:comment "Granularity of the dataset (NNUTS0, ...)."@en;
+    rdfs:domain blthb:Dataset ;
+    rdfs:range skos:prefLabel ;
+    rdfs:isDefinedBy <http://data.builthub.eu/ontology/cbhsv.ttl>.
+
+blthb:methodologySource
+    a rdfs:Property, owl:ObjectProperty;
+    rdfs:label "BuiltHub class' property"@en;
+    rdfs:comment "BuiltHub class' property."@en;
+    rdfs:domain blthb:Dataset ;
+    rdfs:range xsd:anyURI ;
+    rdfs:isDefinedBy <http://data.builthub.eu/ontology/cbhsv.ttl>.
+
+blthb:methodologyDestription
+    a rdfs:Property, owl:ObjectProperty;
+    rdfs:label "BuiltHub class' property"@en;
+    rdfs:comment "BuiltHub class' property."@en;
+    rdfs:domain blthb:Dataset ;
+    rdfs:range skos:definition ;
+    rdfs:isDefinedBy <http://data.builthub.eu/ontology/cbhsv.ttl>.
+
+blthb:accuracy
+    a rdfs:Property, owl:ObjectProperty;
+    rdfs:label "BuiltHub class' property"@en;
+    rdfs:comment "BuiltHub class' property."@en;
+    rdfs:domain blthb:Dataset ;
+    rdfs:range skos:prefLabel ;
+    rdfs:isDefinedBy <http://data.builthub.eu/ontology/cbhsv.ttl>.
+
+blthb:completeness
+    a rdfs:Property, owl:ObjectProperty;
+    rdfs:label "BuiltHub class' property"@en;
+    rdfs:comment "BuiltHub class' property."@en;
+    rdfs:domain blthb:Dataset ;
+    rdfs:range skos:prefLabel ;
+    rdfs:isDefinedBy <http://data.builthub.eu/ontology/cbhsv.ttl>.
+
+blthb:source
+    a rdfs:Property, owl:ObjectProperty;
+    rdfs:label "BuiltHub class' property"@en;
+    rdfs:comment "BuiltHub class' property."@en;
+    rdfs:domain blthb:Dataset ;
+    rdfs:range skos:prefLabel ;
+    rdfs:isDefinedBy <http://data.builthub.eu/ontology/cbhsv.ttl>.
+
+blthb:access
+    a rdfs:Property, owl:ObjectProperty;
+    rdfs:label "BuiltHub class' property"@en;
+    rdfs:comment "BuiltHub class' property."@en;
+    rdfs:domain blthb:Dataset ;
+    rdfs:range blthb:Access ;
+    rdfs:isDefinedBy <http://data.builthub.eu/ontology/cbhsv.ttl>.
+
+blthb:termsOfUse
+    a rdfs:Property, owl:ObjectProperty;
+    rdfs:label "BuiltHub class' property"@en;
+    rdfs:comment "BuiltHub class' property."@en;
+    rdfs:domain blthb:Dataset ;
+    rdfs:range skos:definition ;
+    rdfs:isDefinedBy <http://data.builthub.eu/ontology/cbhsv.ttl>.
+
+blthb:availability
+    a rdfs:Property, owl:ObjectProperty;
+    rdfs:label "BuiltHub class' property"@en;
+    rdfs:comment "BuiltHub class' property."@en;
+    rdfs:domain blthb:Dataset ;
+    rdfs:range blthb:Availability ;
+    rdfs:isDefinedBy <http://data.builthub.eu/ontology/cbhsv.ttl>.
+
+blthb:sourceType
+    a rdfs:Property, owl:ObjectProperty;
+    rdfs:label "BuiltHub class' property"@en;
+    rdfs:comment "BuiltHub class' property."@en;
+    rdfs:domain blthb:Dataset ;
+    rdfs:range blthb:SourceType ;
+    rdfs:isDefinedBy <http://data.builthub.eu/ontology/cbhsv.ttl>.
+
+blthb:Statistic a rdfs:Class,
+        owl:Class ;
+    rdfs:label "This class contains statistic information."@en ;
+    rdfs:comment "This class contains statistic information."@en ;
+    rdfs:isDefinedBy <http://data.builthub.eu/ontology/cbhsv.ttl> ;
+    rdfs:subClassOf skos:Concept .
+
+blthb:hasStatistic
+    a rdfs:Property, owl:ObjectProperty ;
+    rdfs:label "It has statistics information"@en ;
+    rdfs:comment "The main purpose of this predicate is indicate that the subject has statistic information."@en ;
+    rdfs:domain skos:Concept ;
+    rdfs:range blthb:Statistic ;
+    rdfs:isDefinedBy <http://data.builthub.eu/ontology/cbhsv.ttl> .
+
+blthb:statsRefYear
+    a rdfs:Property, owl:ObjectProperty;
+    rdfs:label "Statistical reference year"@en;
+    rdfs:comment "The reference year of the statistics."@en;
+    rdfs:domain blthb:Statistic ;
+    rdfs:range xsd:integer ;
+    rdfs:isDefinedBy <http://data.builthub.eu/ontology/cbhsv.ttl>.
+
+blthb:statsRefSurfaceArea
+    a rdfs:Property, owl:ObjectProperty;
+    rdfs:label "Statistical reference of the surface (km2)"@en;
+    rdfs:comment "Statistical reference of the surface (km2)"@en;
+    rdfs:domain blthb:Statistic ;
+    rdfs:range xsd:float ;
+    rdfs:isDefinedBy <http://data.builthub.eu/ontology/cbhsv.ttl>.
+
+blthb:statsPopulation
+    a rdfs:Property, owl:ObjectProperty;
+    rdfs:label "Statistical census value"@en;
+    rdfs:comment "Statistical census value"@en;
+    rdfs:domain blthb:Statistic ;
+    rdfs:range xsd:integer ;
+    rdfs:isDefinedBy <http://data.builthub.eu/ontology/cbhsv.ttl>.
+
+blthb:statsPopulationDensity
+    a rdfs:Property, owl:ObjectProperty;
+    rdfs:label "Statistical population density value"@en;
+    rdfs:comment "Statistical population density value"@en;
+    rdfs:domain blthb:Statistic ;
+    rdfs:range xsd:float ;
+    rdfs:isDefinedBy <http://data.builthub.eu/ontology/cbhsv.ttl>.
