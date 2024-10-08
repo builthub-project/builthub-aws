@@ -1,0 +1,14 @@
+{
+    "TWh/yr": "http://qudt.org/vocab/unit/TeraW-HR",
+    "GWh": "http://qudt.org/vocab/unit/GigaW-HR",
+    "TOE": "http://qudt.org/vocab/unit/TOE",
+    "%": "http://qudt.org/vocab/unit/PERCENT",
+    "Terajoule": "http://qudt.org/vocab/unit/TeraJ",
+    "Number": "http://qudt.org/vocab/unit/NUM",
+    "euro": "http://qudt.org/vocab/unit/Euro",
+    "W/m2": "http://qudt.org/vocab/unit/W-PER-M2",
+    "K": "http://qudt.org/vocab/unit/K",
+    "g/kg": "http://qudt.org/vocab/unit/GM-PER-KiloGM",
+    "Euro": "http://qudt.org/vocab/unit/Euro",
+    "m2": "http://qudt.org/vocab/unit/M2"
+}
